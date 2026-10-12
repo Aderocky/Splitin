@@ -1,0 +1,20 @@
+package com.example.splitin.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val Purple80 = Color(0xFFD0BCFF)
+val PurpleGrey80 = Color(0xFFCCC2DC)
+val Pink80 = Color(0xFFEFB8C8)
+
+val Purple40 = Color(0xFF6650a4)
+val PurpleGrey40 = Color(0xFF625b71)
+val Pink40 = Color(0xFF7D5260)
+
+val PrimaryOrange = Color(0xFFFF7A00)
+val AppBackground = Color(0xFFF8F8F8)
+val PrimaryText = Color(0xFF1C1C1C)
+val SecondaryText = Color(0xFF777777)
+val SuccessGreen = Color(0xFF2E9B70)
+val SoftOrange = Color(0xFFFFF1E5)
+val InputBackground = Color(0xFFF7F8FA)
+val SuccessBg = Color(0xFFE8F5E9)
