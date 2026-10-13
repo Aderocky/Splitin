@@ -55,7 +55,8 @@ If Andi paid for everything, Budi owes Andi Rp27,500 and Citra owes Andi Rp5,500
 ## Tech Stack
 
 - Platform: Android
-- Language: Kotlin / Java *(adjust)*
+- Language: Kotlin
+- UI: Jetpack Compose
 - IDE: Android Studio
 
 ## Getting Started
