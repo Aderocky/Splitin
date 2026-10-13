@@ -21,19 +21,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.splitin.screens.addFriends.Friend
+import com.example.splitin.data.model.Friend
+import com.example.splitin.data.model.OrderItem
 import com.example.splitin.ui.theme.*
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.util.Locale
 import java.util.UUID
-
-data class OrderItem(
-    val id: String = UUID.randomUUID().toString(),
-    val name: String,
-    val price: Long,
-    val eaterIds: List<String>
-)
 
 @Composable
 fun AddItemsScreen(
@@ -246,6 +240,8 @@ fun AddItemForm(
                 placeholder = { Text("Mis: Nasi Goreng Spesial", color = Color(0xFF9E9E9E), fontSize = 14.sp) },
                 shape = RoundedCornerShape(12.dp),
                 colors = OutlinedTextFieldDefaults.colors(
+                    focusedTextColor = PrimaryText,
+                    unfocusedTextColor = PrimaryText,
                     focusedContainerColor = Color.White,
                     unfocusedContainerColor = Color.White,
                     focusedBorderColor = PrimaryOrange,
@@ -285,6 +281,8 @@ fun AddItemForm(
                 textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Start),
                 shape = RoundedCornerShape(12.dp),
                 colors = OutlinedTextFieldDefaults.colors(
+                    focusedTextColor = PrimaryText,
+                    unfocusedTextColor = PrimaryText,
                     focusedContainerColor = Color.White,
                     unfocusedContainerColor = Color.White,
                     focusedBorderColor = PrimaryOrange,

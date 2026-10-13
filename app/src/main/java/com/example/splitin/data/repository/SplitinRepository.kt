@@ -1,9 +1,10 @@
 package com.example.splitin.data.repository
 
 import android.content.Context
+import com.example.splitin.data.model.Friend
+import com.example.splitin.data.model.FriendSplitResult
+import com.example.splitin.data.model.OrderItem
 import com.example.splitin.data.model.SplitHistory
-import com.example.splitin.screens.addFriends.Friend
-import com.example.splitin.screens.addItems.OrderItem
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,15 +15,6 @@ import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
-data class FriendSplitResult(
-    val friend: Friend,
-    val subtotal: Double,
-    val taxShare: Double,
-    val serviceShare: Double,
-    val discountShare: Double,
-    val finalAmount: Long,
-    val isPayer: Boolean
-)
 
 @Singleton
 class SplitinRepository @Inject constructor(

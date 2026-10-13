@@ -1,8 +1,8 @@
 package com.example.splitin.screens.payment
 
 import androidx.lifecycle.ViewModel
+import com.example.splitin.data.model.Friend
 import com.example.splitin.data.repository.SplitinRepository
-import com.example.splitin.screens.addFriends.Friend
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject

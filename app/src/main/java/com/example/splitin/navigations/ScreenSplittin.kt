@@ -5,7 +5,6 @@ sealed class ScreenSplitin (val route: String) {
     object AddFriends : ScreenSplitin("addFriends")
     object AddItems : ScreenSplitin("addItems")
     object SplitItems : ScreenSplitin("splitItems")
-    object Review : ScreenSplitin("review")
     object Payment : ScreenSplitin("payment")
     object Result : ScreenSplitin("result")
 }

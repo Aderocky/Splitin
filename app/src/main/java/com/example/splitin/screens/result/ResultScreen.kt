@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.splitin.data.repository.FriendSplitResult
+import com.example.splitin.data.model.FriendSplitResult
 import com.example.splitin.navigations.ScreenSplitin
 import com.example.splitin.ui.theme.*
 import java.text.NumberFormat

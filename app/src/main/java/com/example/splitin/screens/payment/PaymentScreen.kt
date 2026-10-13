@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.splitin.screens.addFriends.Friend
+import com.example.splitin.data.model.Friend
 import com.example.splitin.ui.theme.*
 import java.text.NumberFormat
 import java.util.Locale

@@ -1,6 +1,7 @@
 package com.example.splitin.screens.addFriends
 
 import androidx.lifecycle.ViewModel
+import com.example.splitin.data.model.Friend
 import com.example.splitin.data.repository.SplitinRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow

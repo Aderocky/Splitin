@@ -1,14 +1,13 @@
 package com.example.splitin.screens.home
 
+import android.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -80,11 +79,9 @@ fun HomeScreens(
                 .padding(paddingValues),
             contentPadding = PaddingValues(bottom = 24.dp)
         ) {
-            // 1. Header Section
             item {
                 HomeHeader()
             }
-            // 2. Main Card Section
             item {
                 CreateSplitCard(
                     activityName = activityName,
@@ -97,17 +94,14 @@ fun HomeScreens(
                     }
                 )
             }
-            // 3. Quick Shortcut Section
             item {
                 QuickShortcutSection(
                     onShortcutClick = { activityName = it }
                 )
             }
-            // 4. Recent Split Section
             item {
                 RecentSplitSection(historyList = historyList)
             }
-            // 5. Motivational Card
             item {
                 MotivationalCard()
             }
@@ -229,6 +223,8 @@ fun CreateSplitCard(
                     },
                     shape = RoundedCornerShape(12.dp),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = PrimaryText,
+                        unfocusedTextColor = PrimaryText,
                         focusedContainerColor = InputBackground,
                         unfocusedContainerColor = InputBackground,
                         focusedBorderColor = Color(0xFFEEEEEE),

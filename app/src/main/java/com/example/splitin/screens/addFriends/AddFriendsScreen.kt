@@ -18,18 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.splitin.data.model.Friend
 import com.example.splitin.ui.theme.*
-import java.util.UUID
-
-data class Friend(
-    val id: String = UUID.randomUUID().toString(),
-    val name: String
-)
 
 @Composable
 fun AddFriendsScreen(
@@ -70,7 +64,6 @@ fun AddFriendsScreen(
         ) {
             Spacer(modifier = Modifier.height(32.dp))
 
-            // 2. Input Section
             AddFriendInput(
                 value = friendName,
                 onValueChange = { 
@@ -83,7 +76,6 @@ fun AddFriendsScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // 3. Friend List Header
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -106,7 +98,6 @@ fun AddFriendsScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // 4. Friend List
             if (friends.isEmpty()) {
                 Box(
                     modifier = Modifier
@@ -157,6 +148,7 @@ fun AddFriendTopBar(onBack: () -> Unit) {
                 text = "Tambah Teman",
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold,
+                    color = PrimaryText,
                     fontSize = 20.sp
                 )
             )
@@ -188,8 +180,8 @@ fun AddFriendInput(
                 IconButton(
                     onClick = onAddClick,
                     modifier = Modifier
-                        .padding(end = 4.dp)
-                        .size(36.dp)
+                        .padding(end = 5.dp)
+                        .size(34.dp)
                         .clip(RoundedCornerShape(8.dp))
                         .background(PrimaryOrange)
                 ) {
@@ -198,6 +190,8 @@ fun AddFriendInput(
             },
             shape = RoundedCornerShape(12.dp),
             colors = OutlinedTextFieldDefaults.colors(
+                focusedTextColor = PrimaryText,
+                unfocusedTextColor = PrimaryText,
                 focusedContainerColor = Color.White,
                 unfocusedContainerColor = Color.White,
                 focusedBorderColor = PrimaryOrange,
