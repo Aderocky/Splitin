@@ -155,7 +155,11 @@ fun AddFriendTopBar(onBack: () -> Unit) {
         },
         navigationIcon = {
             IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Back",
+                    tint = Color.Black
+                )
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
@@ -180,8 +184,8 @@ fun AddFriendInput(
                 IconButton(
                     onClick = onAddClick,
                     modifier = Modifier
-                        .padding(end = 5.dp)
-                        .size(34.dp)
+                        .padding(end = 8.dp)
+                        .size(30.dp)
                         .clip(RoundedCornerShape(8.dp))
                         .background(PrimaryOrange)
                 ) {

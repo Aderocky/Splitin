@@ -25,17 +25,14 @@ class SplitinRepository @Inject constructor(
     private var currentSplitId: String = UUID.randomUUID().toString()
 
     private val _activityName = MutableStateFlow<String>("")
-    val activityNameFlow: StateFlow<String> = _activityName.asStateFlow()
 
     private val _selectedDate = MutableStateFlow<Long>(System.currentTimeMillis())
-    val selectedDateFlow: StateFlow<Long> = _selectedDate.asStateFlow()
 
     var activityName: String = ""
     var selectedDate: Long = System.currentTimeMillis()
 
     var total: Long = 0
     private val _totalAmount = MutableStateFlow<Long>(0L)
-    val totalAmountFlow: StateFlow<Long> = _totalAmount.asStateFlow()
 
     private val _friends = MutableStateFlow<List<Friend>>(emptyList())
     val friends: StateFlow<List<Friend>> = _friends.asStateFlow()
@@ -123,11 +120,6 @@ class SplitinRepository @Inject constructor(
         this._selectedDate.value = date
     }
 
-    fun saveFinalTotal(totalAmount: Long) {
-        this.total = totalAmount
-        this._totalAmount.value = totalAmount
-    }
-
     fun saveHistory() {
         val history = SplitHistory(
             id = currentSplitId,
@@ -156,12 +148,12 @@ class SplitinRepository @Inject constructor(
         if (_friends.value.any { it.name.equals(trimmedName, ignoreCase = true) }) {
             return "Teman sudah ditambahkan"
         }
-        _friends.value = _friends.value + Friend(name = trimmedName)
+        _friends.value += Friend(name = trimmedName)
         return null
     }
 
     fun removeFriend(friend: Friend) {
-        _friends.value = _friends.value - friend
+        _friends.value -= friend
     }
 
     fun addItem(name: String, price: Long, eaterIds: List<String>): String? {
@@ -180,12 +172,12 @@ class SplitinRepository @Inject constructor(
             price = price,
             eaterIds = eaterIds
         )
-        _items.value = _items.value + newItem
+        _items.value += newItem
         return null
     }
 
     fun removeItem(item: OrderItem) {
-        _items.value = _items.value - item
+        _items.value -= item
     }
 
     fun updateTax(tax: Int) {
@@ -287,26 +279,5 @@ class SplitinRepository @Inject constructor(
         }
 
         return null
-    }
-
-    fun getItemsForFriend(friendId: String): List<OrderItem> {
-        return _items.value.filter { it.eaterIds.contains(friendId) }
-    }
-
-    fun getItemsByFriendName(): Map<String, List<OrderItem>> {
-        val friendsList = _friends.value
-        val result = mutableMapOf<String, MutableList<OrderItem>>()
-        for (friend in friendsList) {
-            result[friend.name] = mutableListOf()
-        }
-        for (item in _items.value) {
-            for (eaterId in item.eaterIds) {
-                val friend = friendsList.find { it.id == eaterId }
-                if (friend != null) {
-                    result.getOrPut(friend.name) { mutableListOf() }.add(item)
-                }
-            }
-        }
-        return result
     }
 }

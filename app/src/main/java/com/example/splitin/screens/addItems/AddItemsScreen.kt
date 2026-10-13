@@ -27,7 +27,6 @@ import com.example.splitin.ui.theme.*
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.util.Locale
-import java.util.UUID
 
 @Composable
 fun AddItemsScreen(
@@ -347,17 +346,17 @@ fun AddItemForm(
                     .height(48.dp),
                 shape = RoundedCornerShape(14.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = SoftOrange,
+                    containerColor = PrimaryOrange,
                     disabledContainerColor = Color(0xFFE5E5E5)
                 ),
                 elevation = null
             ) {
                 Text(
-                    text = "+  Tambahkan Item",
+                    text = "Tambahkan Item +",
                     style = MaterialTheme.typography.labelLarge.copy(
                         fontWeight = FontWeight.Bold,
-                        color = if (isFormValid) PrimaryOrange else Color(0xFF9E9E9E),
-                        fontSize = 15.sp
+                        fontSize = 16.sp,
+                        color = if (isFormValid) Color.White else SecondaryText
                     )
                 )
             }

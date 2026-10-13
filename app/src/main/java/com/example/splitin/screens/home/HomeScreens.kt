@@ -1,6 +1,5 @@
 package com.example.splitin.screens.home
 
-import android.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -42,6 +41,7 @@ fun HomeScreens(
     var activityName by remember { mutableStateOf("") }
     var selectedDate by remember { mutableLongStateOf(System.currentTimeMillis()) }
     var showDatePicker by remember { mutableStateOf(false) }
+    val historyList by viewModel.historyList.collectAsState()
 
     val datePickerState = rememberDatePickerState(
         initialSelectedDateMillis = selectedDate
@@ -67,8 +67,6 @@ fun HomeScreens(
             DatePicker(state = datePickerState)
         }
     }
-
-    val historyList by viewModel.historyList.collectAsState()
 
     Scaffold(
         containerColor = AppBackground
@@ -108,7 +106,6 @@ fun HomeScreens(
         }
     }
 }
-
 @Composable
 fun HomeHeader() {
     Box(
@@ -219,10 +216,12 @@ fun CreateSplitCard(
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = { Text("Contoh: Makan KFC", color = SecondaryText, fontSize = 14.sp) },
                     leadingIcon = {
-                        Icon(Icons.Default.Edit, contentDescription = null, tint = SecondaryText, modifier = Modifier.size(20.dp))
+                        Icon(Icons.Default.Edit, contentDescription = null, tint = PrimaryText, modifier = Modifier.size(20.dp))
                     },
                     shape = RoundedCornerShape(12.dp),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedLeadingIconColor = PrimaryText,
+                        unfocusedLeadingIconColor = PrimaryText,
                         focusedTextColor = PrimaryText,
                         unfocusedTextColor = PrimaryText,
                         focusedContainerColor = InputBackground,
